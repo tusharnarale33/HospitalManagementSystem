@@ -1,5 +1,6 @@
 package com.hospital.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -7,11 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "hospitalStaff",schema = "hospitalmanagement")
+@Table(name = "hospitalstaff",schema = "hospitalmanagement")
 public class HospitalStaff {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "staff_id")
 	private int staffId;
 	private String name;
 	private int age;
@@ -19,8 +21,10 @@ public class HospitalStaff {
 	private String qualification;
 	private String Phone;
     private String address;
-    private String ShifTiming;
+    @Column(name = "shift_timing")
+    private String shiftTiming;
     private double salary;
+    @Column(name = "assigned_department")
     private String assignedDepartment;
 	public int getStaffId() {
 		return staffId;
@@ -64,11 +68,11 @@ public class HospitalStaff {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getShifTiming() {
-		return ShifTiming;
+	public String getShiftTiming() {
+		return shiftTiming;
 	}
-	public void setShifTiming(String shifTiming) {
-		ShifTiming = shifTiming;
+	public void setShiftTiming(String shiftTiming) {
+		shiftTiming = shiftTiming;
 	}
 	public double getSalary() {
 		return salary;
@@ -99,7 +103,7 @@ public class HospitalStaff {
 		this.qualification = qualification;
 		Phone = phone;
 		this.address = address;
-		ShifTiming = shifTiming;
+		shifTiming = shifTiming;
 		this.salary = salary;
 		this.assignedDepartment = assignedDepartment;
 	}

@@ -2,6 +2,7 @@ package com.hospital.entity;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,7 +16,8 @@ public class Patient {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int patienbtId;
+	@Column(name = "patient_id")
+	private int patientId;
 	private String name;
 	private String gender;
 	private int age;
@@ -23,16 +25,21 @@ public class Patient {
 	private String phone;
 	private String address;
 	private String disease;
+	@Column(name = "admit_date")
 	private Date admitDate;
+	@Column(name = "discharge_date")
 	private Date dischargeDate;
+	@Column(name = "assigned_doctorid")
 	private int assignedDoctorId;
+	@Column(name = "room_number")
 	private int roomNumber;
 	private boolean status;
-	public int getPatienbtId() {
-		return patienbtId;
+	
+	public int getPatientId() {
+		return patientId;
 	}
-	public void setPatienbtId(int patienbtId) {
-		this.patienbtId = patienbtId;
+	public void setPatientId(int patientId) {
+		this.patientId = patientId;
 	}
 	public String getName() {
 		return name;
@@ -117,7 +124,7 @@ public class Patient {
 	public Patient(int patienbtId, String name, String gender, int age, String email, String phone, String address,
 			String disease, Date admitDate, Date dischargeDate, int assignedDoctorId, int roomNumber, boolean status) {
 		super();
-		this.patienbtId = patienbtId;
+		this.patientId = patienbtId;
 		this.name = name;
 		this.gender = gender;
 		this.age = age;

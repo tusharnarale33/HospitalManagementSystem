@@ -1,5 +1,6 @@
 package com.hospital.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,11 @@ import org.hibernate.annotations.GeneratorType;
 @Entity
 @Table(name = "doctor" ,schema = "hospitalmanagement")
 public class Doctor {
+	
+	
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "doctor_id")
 	private int doctorId;
 	private String name;
 	private String gender;
@@ -24,8 +28,11 @@ public class Doctor {
 	private String address;
 	private String department;
 	private String experience;
+	@Column(name = "consultation_fee")
 	private float consultationFee;
+	@Column(name = "available_days")
 	private String availableDays;
+	@Column(name = "available_time")
 	private String availableTime;
 	public int getDoctorId() {
 		return doctorId;
