@@ -1,8 +1,8 @@
-	package com.hospital.controller;
+package com.hospital.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
+import javax.persistence.Table;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,48 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hospital.entity.Doctor;
-import com.hospital.service.DoctorService;
-
-
+import com.hospital.entity.Patient;
+import com.hospital.service.PatientService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/doctor")
-public class DoctorController {
+@RequestMapping("/Patient")
+public class PatientController {
 	
-	@Autowired 
-	private DoctorService doctorService;
-	
+	@Autowired
+	private PatientService patientService;
 	
 	@PostMapping
-	public String saveDoctor(@RequestBody Doctor d) {
-		doctorService.saveDoctor(d);
-		return "success";
-		
+	public String savePatient(@RequestBody Patient p) {
+		patientService.savePatient(p);
+		return "Added Successfully";
 	}
 	
 	@GetMapping
-	public List<Doctor> selectAllDoctor() {
-		return doctorService.selectAllDoctor();
-		
+	public List<Patient> selectAllPatient(){
+		return patientService.selectAllPatient();
 	}
-
+	
 	@PutMapping
-	public String updateDoctor(@RequestBody Doctor d) {
-		doctorService.updateDoctor(d);
-		return "update";
+	public String updatePatient(@RequestBody Patient p) {
+	 patientService.updatePatient(p);	
+	 return "updated";
+	
 	}
 	
 	@DeleteMapping("/id/{id}")
-	public String deleteDoctorById(@PathVariable int id) {
-		doctorService.deleteDoctorById(id);
-		return "delete";
+	public String deletePatientById(@PathVariable int id) {
+		patientService.deletePatientById(id);
+		return "deleted";
 	}
-	
-	
-	
-	
 	
 	
 
