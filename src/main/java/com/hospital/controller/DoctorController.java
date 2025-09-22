@@ -16,13 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.entity.Doctor;
+import com.hospital.model.DoctorRequestDto;
 import com.hospital.service.DoctorService;
 
 
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping("/Doctor")
 public class DoctorController {
 	
 	@Autowired 
@@ -30,8 +31,8 @@ public class DoctorController {
 	
 	
 	@PostMapping
-	public String saveDoctor(@RequestBody Doctor d) {
-		doctorService.saveDoctor(d);
+	public String saveDoctor(@RequestBody DoctorRequestDto dto) {
+		doctorService.saveDoctor(dto);
 		return "success";
 		
 	}

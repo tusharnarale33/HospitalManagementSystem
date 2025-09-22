@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import com.hospital.Repository.HospitalStaffRepository;
 import com.hospital.entity.HospitalStaff;
+import com.hospital.mapper.HospitalStaffMapper;
+import com.hospital.model.HospitalStaffRequestDto;
 import com.hospital.service.HospitalStaffService;
 
 @Service
@@ -15,10 +17,16 @@ public class HospitalStaffServiceImpl implements HospitalStaffService{
 	
 	@Autowired
 	private HospitalStaffRepository hospitalStaffRepository;
+	
+	@Autowired
+	private HospitalStaffMapper hospitalStaffMapper;
 
 	@Override
-	public void saveHospitalStaff(HospitalStaff h) {
-			hospitalStaffRepository.save(h);
+	public HospitalStaffRequestDto saveHospitalStaff(HospitalStaffRequestDto dto) {
+		HospitalStaff hospitalStaff=hospitalStaffMapper.toEntity(dto);
+		HospitalStaff hospitalStaff2=hospitalStaffRepository.save(hospitalStaff);
+		HospitalStaffRequestDto hospitalStaffRequestDto=hospitalStaffMapper.toDto(hospitalStaff2);
+		return hospitalStaffRequestDto;
 	}
 
 	@Override

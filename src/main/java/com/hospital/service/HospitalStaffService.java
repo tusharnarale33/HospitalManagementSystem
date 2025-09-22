@@ -5,10 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hospital.entity.HospitalStaff;
+import com.hospital.model.HospitalStaffRequestDto;
 
 public interface HospitalStaffService {
 	
-     public void saveHospitalStaff(HospitalStaff h);
+     public HospitalStaffRequestDto saveHospitalStaff(HospitalStaffRequestDto dto);
 
 	 public List<HospitalStaff> selectAllHospitalStaff();	
 	 

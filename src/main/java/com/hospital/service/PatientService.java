@@ -3,10 +3,11 @@ package com.hospital.service;
 import java.util.List;
 
 import com.hospital.entity.Patient;
+import com.hospital.model.PatientRequestDto;
 
 public interface PatientService {
 
-	void savePatient(Patient p);
+	PatientRequestDto savePatient(PatientRequestDto dto);
 
 	public List<Patient> selectAllPatient();
 
