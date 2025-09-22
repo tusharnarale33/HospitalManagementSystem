@@ -7,17 +7,27 @@ import org.springframework.stereotype.Service;
 
 import com.hospital.Repository.DoctorRepository;
 import com.hospital.entity.Doctor;
+import com.hospital.mapper.DoctorMapper;
+import com.hospital.model.DoctorRequestDto;
 import com.hospital.service.DoctorService;
 
 @Service
 public class DoctorServiceImpl implements DoctorService{
 	
 	@Autowired
-	private DoctorRepository doctorRepository;
+	private DoctorRepository doctorRepository; 
+	
+	@Autowired
+	private DoctorMapper doctorMapper;
 
 	@Override
-	public void saveDoctor(Doctor d) {
-		doctorRepository.save(d);
+	public DoctorRequestDto saveDoctor(DoctorRequestDto dto) {
+		
+		Doctor doctor=doctorMapper.toEntity(dto);
+			Doctor doctor2 =	doctorRepository.save(doctor);
+			
+		DoctorRequestDto doctorRequestDto=doctorMapper.toDto(doctor2);
+		return doctorRequestDto;	
 		
 	}
 

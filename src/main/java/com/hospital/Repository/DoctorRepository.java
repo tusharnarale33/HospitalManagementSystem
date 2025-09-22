@@ -5,9 +5,14 @@ import org.springframework.data.jpa.repository.config.JpaRepositoryConfigExtensi
 import org.springframework.stereotype.Repository;
 
 import com.hospital.entity.Doctor;
+import com.hospital.model.DoctorRequestDto;
 
 @Repository
 public interface DoctorRepository extends JpaRepository<Doctor,Integer>{
+
+	Doctor save(DoctorRequestDto d);
+
+
 	
 	
 

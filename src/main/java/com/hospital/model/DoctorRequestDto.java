@@ -1,23 +1,11 @@
-package com.hospital.entity;
+package com.hospital.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.GeneratorType;
 
-@Entity
-@Table(name = "doctor" ,schema = "hospitalmanagement")
-public class Doctor {
+
+public class DoctorRequestDto {
 	
-	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "doctor_id")
-	private int doctorId;
 	private String name;
 	private String gender;
 	private int age;
@@ -34,12 +22,14 @@ public class Doctor {
 	private String availableDays;
 	@Column(name = "available_time")
 	private String availableTime;
-	public int getDoctorId() {
-		return doctorId;
+	
+	
+	
+	
+	public DoctorRequestDto() {
+		super();
 	}
-	public void setDoctorId(int doctorId) {
-		this.doctorId = doctorId;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -118,18 +108,10 @@ public class Doctor {
 	public void setAvailableTime(String availableTime) {
 		this.availableTime = availableTime;
 	}
-	
-	//Zero parameter constructor
-	public Doctor() {
-		super();
-	}
-	
-	//Paratmeterized Constructer
-	public Doctor(int doctorId, String name, String gender, int age, String phone, String email, String specialization,
+	public DoctorRequestDto(String name, String gender, int age, String phone, String email, String specialization,
 			String qualification, String address, String department, String experience, float consultationFee,
 			String availableDays, String availableTime) {
 		super();
-		this.doctorId = doctorId;
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
@@ -146,9 +128,5 @@ public class Doctor {
 	}
 	
 	
-	
-	
-	
-	
-	
+
 }

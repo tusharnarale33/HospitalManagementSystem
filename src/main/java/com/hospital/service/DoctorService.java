@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 
 import com.hospital.Repository.DoctorRepository;
 import com.hospital.entity.Doctor;
+import com.hospital.model.DoctorRequestDto;
+import com.hospital.model.DoctorResponseDto;
 
 import net.bytebuddy.asm.Advice.Return;
 
@@ -13,7 +15,7 @@ import net.bytebuddy.asm.Advice.Return;
 public interface DoctorService {
 	
 	
-	public void saveDoctor(Doctor d);
+	public DoctorRequestDto saveDoctor(DoctorRequestDto dto);
 	
 	public void updateDoctor(Doctor d);
 	

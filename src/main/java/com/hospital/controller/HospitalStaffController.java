@@ -16,18 +16,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hospital.entity.HospitalStaff;
+import com.hospital.model.HospitalStaffRequestDto;
 import com.hospital.service.HospitalStaffService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/hospitalStaff")
+@RequestMapping("/HospitalStaff")
 public class HospitalStaffController {
 	
 	@Autowired
 	private HospitalStaffService hospitalStaffService;
 	
 	@PostMapping
-	public String saveHospitalStaff(@RequestBody HospitalStaff h) {
+	public String saveHospitalStaff(@RequestBody HospitalStaffRequestDto h) {
 		hospitalStaffService.saveHospitalStaff(h);
 		return "successfully added.";
 	}
